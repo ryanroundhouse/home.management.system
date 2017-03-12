@@ -1,0 +1,32 @@
+
+body {
+    background-color: black;
+    color:white;
+}
+
+h1 {
+    color:white;
+}
+
+.column-left{ 
+    float: left; width: 33%; 
+}
+
+.column-right{ 
+    float: right; width: 33%; 
+}
+
+.column-center{ 
+    display: inline-block; width: 33%; 
+}
+
+.taskcard {
+    border:1px;
+    border-color:white;
+    border-style:solid;
+    margin:2px;
+    padding:5px;
+    list-style-type: none;
+    background-color:black;
+    border-radius:3px;
+}

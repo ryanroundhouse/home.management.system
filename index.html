@@ -1,0 +1,32 @@
+<head>
+    <title>HMS - Home Management System</title>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	<link rel="stylesheet" href="main.css" >
+    <script>
+        $(function () {
+            $("#todoList, #inProgressList, #doneList").sortable({ connectWith: ".connectedLists" }).disableSelection();
+        });
+    </script>
+</head>
+<body>
+    <h1>HMS - Home Management System</h1>
+    <div id="todoDiv" class="column-left">
+        <ul id="todoList" class="connectedLists">
+            <li class="taskcard">Item1</li>
+            <li class="taskcard">Item2</li>
+        </ul>
+    </div>
+    <div id="inProgressDiv" class="column-center">
+        <ul id="inProgressList" class="connectedLists">
+            <li class="taskcard">Item3</li>
+            <li class="taskcard">Item4</li>
+        </ul>
+    </div>
+    <div id="doneDiv" class="column-right">
+        <ul id="doneList" class="connectedLists">
+            <li class="taskcard">Item5</li>
+            <li class="taskcard">Item6</li>
+        </ul>
+    </div>
+</body>
