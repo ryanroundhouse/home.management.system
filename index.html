@@ -2,24 +2,25 @@
     <title>HMS - Home Management System</title>
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <script type="text/javascript" language="javascript" src="static_tasks.js"></script> 
+    <script type="text/javascript" src="static_tasks.js"></script> 
 	<link rel="stylesheet" href="main.css" >
     <script>
         $(function () {
             $("#todoList, #inProgressList, #doneList").sortable({ connectWith: ".connectedLists" }).disableSelection();
         });
     </script>
+    <script type="text/javascript" src="taskList.js"></script>
     <script>
         $(document).ready(function (e) {
             var list = document.getElementById('todoList');
-            var parsedTaskList = JSON.parse(taskList);
-            jQuery.each(parsedTaskList.taskList, function (taskIndex, task) {
-                jQuery.each(task, function (propertyIndex, taskProperty) {
-                    console.log(taskProperty.title);
+
+            var taskListManager = new TaskListManager();
+            var taskList = taskListManager.loadTaskListFromString(jsonTaskListString);
+            jQuery.each(taskList, function (taskIndex, task) {
+                jQuery.each(task, function (propertyIndex, taskProperties) {
                     var entry = document.createElement('li');
                     entry.className = "taskcard";
-
-                    entry.appendChild(document.createTextNode(taskProperty.title));
+                    taskListManager.addTaskPropertiesToElement(entry, taskProperties);
                     list.appendChild(entry);
                 });
             });
